@@ -3,20 +3,7 @@
 This project demonstrates a cloud architecture using Flask, DynamoDB, and S3 with Localstack for local AWS service emulation. It includes REST API endpoints for creating, reading, updating, and deleting items stored in DynamoDB and S3. The project is set up to run in Docker containers using Docker Compose and includes automated testing with pytest.
 
 ## Project Structure
-cloud_architecture_project/
-├── app/
-│ ├── init.py
-│ └── main.py
-├── tests/
-│ ├── init.py
-│ └── test_app.py
-├── docker-compose.test.yml
-├── docker-compose.yml
-├── Dockerfile
-├── init.sh
-├── README.md
-├── requirements.txt
-└── run_tests.sh
+![alt text](1722374691013.png)
 
 
 ## Prerequisites
