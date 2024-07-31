@@ -29,10 +29,6 @@ venv.bak/
 *.pyo
 *.pyd
 
-# Docker
-**/Dockerfile
-**/docker-compose*.yml
-
 # Flask
 instance/
 .webassets-cache

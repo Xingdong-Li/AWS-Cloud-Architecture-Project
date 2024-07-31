@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:80"
+    environment:
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_DEFAULT_REGION=us-east-1
+    depends_on:
+      - localstack
+    entrypoint: ["sh", "-c", "while ! curl -s http://localstack:4566; do sleep 1; done && /init.sh && python /app/main.py"]
+
+  localstack:
+    image: localstack/localstack
+    environment:
+      - SERVICES=dynamodb,s3
+    ports:
+      - "4566:4566"
+      - "4571:4571"
