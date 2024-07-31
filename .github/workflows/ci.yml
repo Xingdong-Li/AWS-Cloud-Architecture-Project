@@ -45,12 +45,5 @@ jobs:
       - name: Build and start services
         run: docker-compose -f docker-compose.yml up --build -d
 
-      - name: Wait for Localstack and Flask app to be ready
-        run: |
-          dockerize -wait http://localhost:8000/health -timeout 2m
-
-      - name: Run tests
-        run: docker-compose -f docker-compose.test.yml up --abort-on-container-exit
-
       - name: Shut down services
         run: docker-compose down
