@@ -38,9 +38,12 @@ jobs:
     - name: Build and start services
       run: docker-compose -f docker-compose.yml up --build -d
 
+    - name: Install awscli-local
+      run: pip install awscli-local
+
     - name: Wait for Localstack to be ready
       run: |
-        until curl -s http://localhost:4566/health | grep "\"s3\": \"running\"" > /dev/null; do
+        until awslocal s3 ls > /dev/null 2>&1; do
           echo "Waiting for Localstack S3 service to be ready..."
           sleep 5
         done
