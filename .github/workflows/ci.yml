@@ -47,7 +47,7 @@ jobs:
 
       - name: Wait for Localstack and Flask app to be ready
         run: |
-          dockerize -wait http://localhost:4566/health -wait http://localhost:8000/health -timeout 2m
+          dockerize -wait http://localhost:8000/health -timeout 2m
 
       - name: Run tests
         run: docker-compose -f docker-compose.test.yml up --abort-on-container-exit
