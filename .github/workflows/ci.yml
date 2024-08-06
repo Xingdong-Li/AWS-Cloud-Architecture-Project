@@ -45,5 +45,11 @@ jobs:
       - name: Build and start services
         run: docker-compose -f docker-compose.yml up --build -d
 
+      - name: Wait for services to start
+        run: dockerize -wait tcp://localhost:8000 -timeout 1m
+
+      - name: Run tests
+        run: docker-compose exec app python -m pytest
+
       - name: Shut down services
         run: docker-compose down

@@ -11,7 +11,7 @@ services:
       - AWS_DEFAULT_REGION=us-east-1
     depends_on:
       - localstack
-    entrypoint: ["sh", "-c", "while ! curl -s http://localstack:4566; do sleep 1; done && /init.sh && python /app/main.py"]
+    entrypoint: ["sh", "-c", "while ! curl -s http://localstack:4566; do sleep 1; done && /app/init.sh && python /app/main.py"]
 
   localstack:
     image: localstack/localstack
